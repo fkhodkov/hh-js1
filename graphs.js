@@ -15,8 +15,7 @@ const lazyGraph = {
   },
   calcVertex(vertex, dependencies=[]) {
     if (!(vertex in this.values)) {
-      let newDeps = dependencies.map(x => x)
-      newDeps.push(vertex)
+      let newDeps = dependencies.concat([vertex])
       if (!(vertex in this.graph))
         throw new RangeError(
           "Undefined vertex reference " + vertex + " in graph: " + newDeps.join(' => '))
