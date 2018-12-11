@@ -11,9 +11,7 @@ function getParamNames(func) {
 
 const lazyGraph = {
   receiveGraph(graph) {
-    let lg = {}
-    return Object.assign(
-      lg, {graph: graph, values: {}, calcVertex: this.calcVertex.bind(lg)})
+    return { graph: graph, values: {}, calcVertex: this.calcVertex }
   },
   calcVertex(vertex, dependencies=[]) {
     if (!(vertex in this.values)) {
